@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signature Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="file"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration</h2>
+        <form id="registrationForm">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="loginUsername">Username:</label>
+            <input type="text" id="loginUsername" name="username" required>
+
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <h2>Upload Signature Document</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <label for="docType">Document Source:</label>
+            <select id="docType" name="docType">
+                <option value="bank">Bank Document Signature</option>
+                <option value="govt">Government Document Signature</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="signatureFile">Upload Signature Image:</label>
+            <input type="file" id="signatureFile" name="signatureFile" accept="image/*" required>
+
+            <button type="submit">Upload & Predict</button>
+        </form>
+
+        <h2>Prediction Results</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Prediction (Forge/Real)</th>
+                    <th>Accuracy (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bidirectional RNN</td>
+                    <td id="rnnPrediction">-</td>
+                    <td id="rnnAccuracy">-</td>
+                </tr>
+                <tr>
+                    <td>CNN</td>
+                    <td id="cnnPrediction">-</td>
+                    <td id="cnnAccuracy">-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        document.getElementById("uploadForm").onsubmit = function(event) {
+            event.preventDefault();
+            
+            // Placeholder for actual upload and prediction code
+            const rnnPrediction = "Real"; // Placeholder for actual RNN model prediction
+            const rnnAccuracy = 95; // Placeholder for actual RNN model accuracy
+            
+            const cnnPrediction = "Forge"; // Placeholder for actual CNN model prediction
+            const cnnAccuracy = 92; // Placeholder for actual CNN model accuracy
+
+            document.getElementById("rnnPrediction").textContent = rnnPrediction;
+            document.getElementById("rnnAccuracy").textContent = rnnAccuracy + "%";
+            document.getElementById("cnnPrediction").textContent = cnnPrediction;
+            document.getElementById("cnnAccuracy").textContent = cnnAccuracy + "%";
+        };
+    </script>
+</body>
+</html>
